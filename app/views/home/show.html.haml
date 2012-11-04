@@ -1,5 +1,8 @@
 %h1 Map
 
+= link_to 'Zoom In', home_path('map', zoom: @zoom - 1) if @zoom > 0
+= link_to 'Zoom Out', home_path('map', zoom: @zoom + 1) if @zoom < 5
+
 .editor
   = form_tag 'homes' do
     .field
@@ -21,4 +24,7 @@
 
     = submit_tag 'Update', :id => 'update_home'
 #map
+
+%script{:type => 'text/javascript'}
+  var zoom_level = #{@zoom}
 

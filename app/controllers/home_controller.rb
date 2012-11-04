@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   before_filter :require_login, :only => :secret
 
   def show
+    @zoom = (params[:zoom] || session[:zzom] || 1).to_i
   end
 
   def index
@@ -27,7 +28,6 @@ class HomeController < ApplicationController
         }
       }
     end
-    puts details
     render :json => details
   end
 

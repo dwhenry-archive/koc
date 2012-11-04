@@ -17,13 +17,13 @@ $ ->
         @createRow()
         if row == 0
           @row.addClass 'numbered'
-          @row.append @numberedCell('', 'top left')
+          @row.append @numberedCell('', 'top left', -1)
           for col in [1..@cols()]
-            @row.append @numberedCell(col, 'top')
+            @row.append @numberedCell(col, 'top', col % 2)
         else
           for col in [0..@cols()]
             if col == 0
-              @row.append @numberedCell(row, 'left')
+              @row.append @numberedCell(row, 'left', row % 2)
             else
               @row.append @createCell(@offsetRow + row, @offsetCol + col)
 
@@ -36,6 +36,7 @@ $ ->
       parseInt((width / (@size() + 2)).toFixed()) - 1
 
     size: ->
+      return 100 if @zoom == 0
       (6 - @zoom) * 10
 
     startEdit: (cell)=>
@@ -59,8 +60,10 @@ $ ->
       cell.data 'row', row
       cell.data 'col', col
 
-    numberedCell: (num, classname)->
-      cell = $("<div class='number cell " + classname + "'>" + num + "</div>")
+    numberedCell: (num, classname, parity)->
+      parity_classname = 'even' if parity == 0
+      parity_classname = 'odd'  if parity == 1
+      cell = $("<div class='number cell " + classname + " " + parity_classname + "'>" + num + "</div>")
       cell.addClass 'numbered'
 
 
@@ -109,7 +112,7 @@ $ ->
       $('.editor').hide()
 
 
-  window.map = new Map $('#map'), 1
+  window.map = new Map $('#map'), zoom_level
 
   $('#map').on 'click', '.cell', ->
     map.startEdit $(this)

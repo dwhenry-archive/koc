@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.zoom_0 .cell {
+  width: 100px;
+  height: 100px;
+}
+
 .zoom_1 .cell {
   width: 50px;
   height: 50px;
@@ -52,18 +57,39 @@
   background: black
 }
 
-
-.top.number {
-  height: 15px;
+.number {
   float: left;
   text-align: center;
   font-weight: bold;
 }
+
+.zoom_4 .number {
+  font-size: 10px;
+}
+.zoom_5 {
+  .number {
+    font-size: 8px;
+  }
+  .top {
+    &.odd {
+      display: none;
+    }
+    &.even {
+      width: 22px;
+    }
+  }
+  .left.number {
+    width: 20px;
+  }
+}
+
+
+
+.top.number {
+  height: 15px;
+}
 .left.number {
   width: 15px;
-  float: left;
-  padding: auto;
-  font-weight: bold;
 }
 .editor {
   display: none;
