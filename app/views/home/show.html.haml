@@ -1,0 +1,24 @@
+%h1 Map
+
+.editor
+  = form_tag 'homes' do
+    .field
+      = label_tag :cell_type, 'Cell Type'
+      = select_tag :cell_type, options_for_select(['Empty', 'Occupied', 'Food', 'Ore', 'Stone', 'Wood'])
+    .field
+      = label_tag :level
+      = select_tag :level, options_for_select((1..10).map{|a| a})
+    = field_set_tag 'Owner', :id => 'owner' do
+      .field
+        .label Name:
+        #name
+      .field
+        .label Tags:
+        #tags
+      .field
+        .label Comments:
+        #comments
+
+    = submit_tag 'Update', :id => 'update_home'
+#map
+

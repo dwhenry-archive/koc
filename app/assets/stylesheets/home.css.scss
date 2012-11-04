@@ -1,0 +1,81 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.zoom_1 .cell {
+  width: 50px;
+  height: 50px;
+}
+
+.zoom_2 .cell {
+  width: 40px;
+  height: 40px;
+}
+
+.zoom_3 .cell {
+  width: 30px;
+  height: 30px;
+}
+
+.zoom_4 .cell {
+  width: 20px;
+  height: 20px;
+}
+
+.zoom_5 .cell {
+  width: 10px;
+  height: 10px;
+}
+
+.row {
+  overflow: hidden;
+}
+
+.cell {
+  border: solid 1px #999;
+  float: left;
+}
+
+.Wood {
+  background: green
+}
+.Ore {
+  background: blue
+}
+.Stone {
+  background: grey
+}
+.Food {
+  background: red
+}
+.Occupied {
+  background: black
+}
+
+
+.top.number {
+  height: 15px;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+}
+.left.number {
+  width: 15px;
+  float: left;
+  padding: auto;
+  font-weight: bold;
+}
+.editor {
+  display: none;
+  position: absolute;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #333;
+  margin: 20px;
+  background: #eee;
+}
+
+.label {
+  display: inline-block;
+  color: #666;
+}
